@@ -2,7 +2,7 @@
 import torch
 from torch import nn
 
-class ClipEmbedding(nn.Module):
+class CLIPEmbedding(nn.Module):
     """CLIP text embedding layer.
     Args:
         n_vocab (int): Size of the vocabulary.

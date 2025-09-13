@@ -3,10 +3,10 @@
 import torch
 from torch import nn
 
-from stable_diffusion.encoders.clip import ClipEmbedding
-from stable_diffusion.encoders.clip import ClipTransformer
+from stable_diffusion.clip import CLIPEmbedding
+from stable_diffusion.clip import CLIPLayer
 
-class ClipEncoder(nn.Module):
+class CLIP(nn.Module):
     """CLIP text encoder.
     Args:
         vocab_size (int): Size of the vocabulary. Default: 49408.
@@ -18,10 +18,10 @@ class ClipEncoder(nn.Module):
     def __init__(self, vocab_size: int = 49408, embed_dim: int = 768, max_seq_len: int = 77,
                  n_heads: int = 12, n_layers: int = 12):
         super().__init__()
-        self.embedding = ClipEmbedding(vocab_size, embed_dim, max_seq_len)
+        self.embedding = CLIPEmbedding(vocab_size, embed_dim, max_seq_len)
 
         self.transformer = nn.ModuleList([
-            ClipTransformer(n_heads, embed_dim) for _ in range(n_layers)
+            CLIPLayer(n_heads, embed_dim) for _ in range(n_layers)
             ])
 
         self.layernorm = nn.LayerNorm(embed_dim)
@@ -46,4 +46,5 @@ class ClipEncoder(nn.Module):
         # (Batch_Size, Seq_Len, Dim) -> (Batch_Size, Seq_Len, Dim)
         output = self.layernorm(state)
 
+        # (Batch_Size, Seq_Len, Dim)
         return output

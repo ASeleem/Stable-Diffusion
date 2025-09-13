@@ -4,7 +4,7 @@ from torch import nn
 
 from stable_diffusion.attention import SelfAttention
 
-class ClipTransformer(nn.Module):
+class CLIPLayer(nn.Module):
     """Transformer module used in CLIP text encoder.
     Args:
         n_head (int): Number of attention heads.
