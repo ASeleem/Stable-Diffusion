@@ -3,8 +3,8 @@
 import torch
 from torch import nn
 
-from StableDiffusion.encoders.clip import ClipEmbedding
-from StableDiffusion.encoders.clip import ClipTransformer
+from stable_diffusion.encoders.clip import ClipEmbedding
+from stable_diffusion.encoders.clip import ClipTransformer
 
 class ClipEncoder(nn.Module):
     """CLIP text encoder.

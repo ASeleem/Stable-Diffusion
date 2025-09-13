@@ -2,7 +2,12 @@
 import torch
 from torch import nn
 
-from StableDiffusion.unet import UNET_ResidualBlock, UNET_AttentionBlock, SwitchSequential, Upsample
+from stable_diffusion.unet import (
+    UNET_ResidualBlock,
+    UNET_AttentionBlock,
+    SwitchSequential,
+    Upsample
+)
 
 class UNET(nn.Module):
     """UNET architecture for Stable Diffusion.

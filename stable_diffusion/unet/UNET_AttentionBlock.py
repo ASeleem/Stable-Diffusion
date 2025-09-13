@@ -6,7 +6,7 @@ import torch
 from torch import nn
 from torch.nn import functional as F
 
-from StableDiffusion.attention import SelfAttention, CrossAttention
+from stable_diffusion.attention import SelfAttention, CrossAttention
 
 class UNET_AttentionBlock(nn.Module):
     """UNET Attention Block.

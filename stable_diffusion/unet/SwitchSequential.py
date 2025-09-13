@@ -1,8 +1,8 @@
 """A sequential module that can switch between different types of layers based on their requirements."""
 from torch import nn
 
-from StableDiffusion.unet.UNET_AttentionBlock import UNET_AttentionBlock
-from StableDiffusion.unet.UNET_ResidualBlock import UNET_ResidualBlock
+from stable_diffusion.unet import UNET_AttentionBlock
+from stable_diffusion.unet import UNET_ResidualBlock
 
 class SwitchSequential(nn.Sequential):
     """A sequential container that can handle layers with different forward method signatures.

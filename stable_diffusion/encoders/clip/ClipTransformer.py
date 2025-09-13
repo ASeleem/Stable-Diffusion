@@ -2,7 +2,7 @@
 import torch
 from torch import nn
 
-from StableDiffusion.attention import SelfAttention
+from stable_diffusion.attention import SelfAttention
 
 class ClipTransformer(nn.Module):
     """Transformer module used in CLIP text encoder.
