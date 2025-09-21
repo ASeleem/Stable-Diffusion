@@ -20,7 +20,7 @@ class CLIP(nn.Module):
         super().__init__()
         self.embedding = CLIPEmbedding(vocab_size, embed_dim, max_seq_len)
 
-        self.transformer = nn.ModuleList([
+        self.layers = nn.ModuleList([
             CLIPLayer(n_heads, embed_dim) for _ in range(n_layers)
             ])
 
@@ -40,9 +40,9 @@ class CLIP(nn.Module):
         state = self.embedding(tokens)
 
         # Apply transformer blocks
-        for block in self.transformer:
+        for layer in self.layers:
             # (Batch_Size, Seq_Len, Dim) -> (Batch_Size, Seq_Len, Dim)
-            state = block(state)
+            state = layer(state)
         # (Batch_Size, Seq_Len, Dim) -> (Batch_Size, Seq_Len, Dim)
         output = self.layernorm(state)
 

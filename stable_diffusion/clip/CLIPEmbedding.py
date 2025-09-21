@@ -15,7 +15,7 @@ class CLIPEmbedding(nn.Module):
         self.token_embedding = nn.Embedding(n_vocab, n_embed)
 
         # A learnable weight matrix encodes the postion information for each token
-        self.position_embedding = nn.Parameter(torch.zeros(1, n_token, n_embed))
+        self.position_embedding = nn.Parameter(torch.zeros((n_token, n_embed)))
 
     def forward(self, token):
         """Forward pass of the CLIP text embedding layer.
